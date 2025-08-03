@@ -22,10 +22,6 @@ Certified that this report titled **"JOBCRAFTER PORTAL"** is a bonafide record o
 **Dr. Aysha V.**  
 **Principal**
 
-**External Examiners:**
-1. ________________________
-2. ________________________
-
 ---
 
 ### DECLARATION
@@ -2212,15 +2208,15 @@ The following screenshots demonstrate the key interfaces and functionalities of 
 │                                                                 │
 │           Find Your Dream Job or Perfect Candidate             │
 │                                                                 │
-│  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐ │
-│  │   FOR WORKERS   │  │  FOR COMPANIES  │  │  FOR STUDENTS   │ │
-│  │                 │  │                 │  │                 │ │
-│  │ ▪ Search Jobs   │  │ ▪ Post Jobs     │  │ ▪ Internships   │ │
-│  │ ▪ Apply Online  │  │ ▪ Find Talent   │  │ ▪ Entry Level   │ │
-│  │ ▪ Track Status  │  │ ▪ Manage Apps   │  │ ▪ Campus Hire   │ │
-│  │                 │  │                 │  │                 │ │
-│  │  [Get Started]  │  │  [Get Started]  │  │  [Get Started]  │ │
-│  └─────────────────┘  └─────────────────┘  └─────────────────┘ │
+│  ┌─────────────────┐  ┌─────────────────┐  │
+│  │   FOR WORKERS   │  │  FOR COMPANIES  │  │  
+│  │                 │  │                 │  │               
+│  │ ▪ Search Jobs   │  │ ▪ Post Jobs     │  │ 
+│  │ ▪ Apply Online  │  │ ▪ Find Talent   │  │ 
+│  │ ▪ Track Status  │  │ ▪ Manage Apps   │  │ 
+│  │                 │  │                 │  │                 
+│  │  [Get Started]  │  │  [Get Started]  │  │  
+│  └─────────────────┘  └─────────────────┘   │
 │                                                                 │
 │  Recent Job Postings:                      Featured Companies:  │
 │  • Software Developer - TechCorp           • Google            │
@@ -2354,43 +2350,6 @@ The following screenshots demonstrate the key interfaces and functionalities of 
 ### 10.2 SAMPLE SOURCE CODE
 
 The following code samples demonstrate key implementation aspects of the JobCrafter Portal:
-
-**Database Connection (config.php)**
-```php
-<?php
-// Database configuration
-define('DB_HOST', 'localhost');
-define('DB_USERNAME', 'jobcrafter_user');
-define('DB_PASSWORD', 'secure_password');
-define('DB_NAME', 'jobcrafter_db');
-
-// Create database connection
-try {
-    $pdo = new PDO(
-        "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8",
-        DB_USERNAME,
-        DB_PASSWORD,
-        [
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-            PDO::ATTR_EMULATE_PREPARES => false
-        ]
-    );
-} catch (PDOException $e) {
-    error_log("Database connection failed: " . $e->getMessage());
-    die("Database connection error. Please try again later.");
-}
-
-// Security headers
-header('X-Content-Type-Options: nosniff');
-header('X-Frame-Options: DENY');
-header('X-XSS-Protection: 1; mode=block');
-
-// Session configuration
-session_start();
-session_regenerate_id(true);
-?>
-```
 
 **User Authentication (auth.php)**
 ```php
